@@ -11,7 +11,7 @@ It's recommended to create a server config file on the host and a data directory
 Modify the configuration as needed: [https://github.com/badaix/snapcast#configuration](https://github.com/badaix/snapcast#configuration)
 
 ## Docker
-    docker run -d --name snapserver -v /etc/snapserver.conf:/etc/snapserver.conf -v /tmp:/tmp --network host --device /dev/snd scootsoftware/snapserver
+    docker run -d --name snapserver -v /etc/snapserver/snapserver.conf:/etc/snapserver.conf -v /etc/snapserver:/root/.config/snapserver -v /tmp:/tmp --network host --device /dev/snd scootsoftware/snapserver
 
 ## Docker Compose
 
