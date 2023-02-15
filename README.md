@@ -1,6 +1,6 @@
-# Snapcast Server Docker Image
+# Snapcast Docker Images
 
-Snapcast Docker images with AirPlay and Spotify support.
+Snapcast Docker images for snapserver and snapclient.
 
 ## Images
 

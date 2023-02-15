@@ -1,6 +1,6 @@
 # Snapcast Server Docker Image
 
-Snapcast Server Docker image with AirPlay and Spotify support.
+Snapcast Server Docker image. Avahi is currently disabled.
 
 ## Setup
 It's recommended to create a server config file on the host for persistence and ease of modification
@@ -9,9 +9,9 @@ It's recommended to create a server config file on the host for persistence and 
 
 Modify the configuration as needed: [https://github.com/badaix/snapcast#configuration](https://github.com/badaix/snapcast#configuration)
 
-## AirPlay
+## AirPlay & Spotify
 
-For AirPlay support your host needs a working Avahi daemon install.
+It's recommended to run shairport-sync for AirPlay and librespot for Spotify Connect in separate containers and use their pipe outputs to connect them to snapcast.
 
 ## Docker
     docker run -d --name snapserver -v /etc/snapserver.conf:/etc/snapserver.conf -v /tmp:/tmp --network host --device /dev/snd scootsoftware/snapserver
@@ -31,4 +31,4 @@ For AirPlay support your host needs a working Avahi daemon install.
         devices:
           - /dev/snd:/dev/snd # Needed for ALSA
           
-> **host** mode for networking can be omitted if you do not intend to use AirPlay or mDNS functionality. In this instance you will need to expose ports **1704**, **1705** and **1780** along with any additional ports for additional TCP streams (e.g. 4900)
+> **host** mode for networking can be omitted. In this instance you will need to expose ports **1704**, **1705** and **1780** along with any additional ports for additional TCP streams (e.g. 4900)

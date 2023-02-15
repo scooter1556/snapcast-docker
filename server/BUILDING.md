@@ -10,8 +10,8 @@
 
  - Test Build
 
-    `docker buildx build --platform linux/arm64,linux/amd64 --tag scootsoftware/snapserver:latest .`
+    `docker buildx build --platform linux/arm/v7,linux/arm64,linux/amd64 --tag scootsoftware/snapserver:latest .`
 
  - Build & Push Images
 
-    `docker buildx build --push --platform linux/arm64,linux/amd64 --tag scootsoftware/snapserver:latest .`
+    `docker buildx build --push --platform linux/arm/v7,linux/arm64,linux/amd64 --tag scootsoftware/snapserver:latest .`

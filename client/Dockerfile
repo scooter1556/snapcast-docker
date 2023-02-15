@@ -6,7 +6,7 @@ ARG SNAPCAST_VERSION="0.27.0"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update
-RUN apt install -y --no-install-recommends build-essential ca-certificates cmake git libasound2-dev libboost-dev libvorbisidec-dev libvorbis-dev libopus-dev libflac-dev libsoxr-dev libavahi-client-dev
+RUN apt install -y --no-install-recommends build-essential ca-certificates cmake git libasound2-dev libboost-dev libvorbisidec-dev libvorbis-dev libopus-dev libflac-dev libsoxr-dev pkg-config
 RUN rm -rf /var/lib/apt/lists/*
 
 # Snapclient
@@ -21,6 +21,6 @@ COPY --from=build /snapcast/bin/snapclient /usr/local/bin/snapclient
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt install --no-install-recommends -y libavahi-client3 libsoxr0 libvorbisidec1 libflac8 libopus0 libasound2 && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install --no-install-recommends -y libsoxr0 libvorbisidec1 libflac8 libopus0 libasound2 && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["snapclient"]
